@@ -402,6 +402,18 @@ img {
   width: 100%;
 }
 
+.lottery li {
+  transition: all .1s ease;
+}
+
+.lottery li.on {
+  transform: scale(1.1) translateZ(0);
+}
+
+.lottery li.stop {
+  transform: rotate(180deg) translateZ(0);
+}
+
 @keyframes light {
   0% {
     background: url(../images/cj_wrap.png) center no-repeat;

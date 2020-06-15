@@ -25,7 +25,6 @@ img {
 }
 
 @media screen and (max-width:1011px) {
-
   .bg {
     background: url(../images/bg.jpg) center no-repeat;
     background-size: cover;
@@ -119,6 +118,7 @@ img {
     box-shadow: 1.583vw 2.028vw 10.386vw 1.978vw rgba(7, 0, 2, 0.75);
     animation: light 2.6s ease infinite;
   }
+
 
   /* footer */
   footer {
@@ -380,6 +380,7 @@ img {
       border-radius: 10vw;
     }
   }
+
 }
 
 // guide
@@ -448,6 +449,16 @@ img {
 
   img {
     width: 100%;
+  }
+
+  li{
+    transition: all .1s ease;
+    &.on{
+      transform: scale(1.1) translateZ(0);
+    }
+    &.stop{
+      transform: rotate(180deg) translateZ(0);
+    }
   }
 }
 
