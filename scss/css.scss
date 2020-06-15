@@ -65,6 +65,7 @@ img {
     }
 
     .people {
+      display: none;
       z-index: 1;
       position: absolute;
       top: .396vw;
@@ -73,21 +74,23 @@ img {
     }
 
     .title {
+      display: none;
       z-index: 2;
       position: absolute;
       top: 23.64vw;
       left: 50%;
       width: 84.57vw;
-      transform: translateX(-50%);
+      margin-left: -42.285vw;
     }
 
     .logo {
+      display: none;
       z-index: 3;
       position: absolute;
       top: 52.621vw;
       left: 50%;
-      transform: translateX(-50%);
       width: 15.331vw;
+      margin-left: -7.6655vw;
     }
 
     .suipian {
@@ -131,11 +134,13 @@ img {
       position: absolute;
       left: 0;
       width: 29.575vw;
+      display: none;
     }
 
     .present-right {
       width: 28.388vw;
       right: 0;
+      display: none;
     }
   }
 
@@ -451,12 +456,18 @@ img {
     width: 100%;
   }
 
-  li{
+  li {
     transition: all .1s ease;
-    &.on{
+
+    &.on {
       transform: scale(1.1) translateZ(0);
     }
-    &.stop{
+
+    &.active {
+      animation: scale 1s ease infinite;
+    }
+
+    &.stop {
       transform: rotate(180deg) translateZ(0);
     }
   }
@@ -476,5 +487,19 @@ img {
   100% {
     background: url(../images/cj_wrap.png) center no-repeat;
     background-size: cover;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
   }
 }
