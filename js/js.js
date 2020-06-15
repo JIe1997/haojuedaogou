@@ -12,7 +12,7 @@ document.onreadystatechange = function () {
 
 $(function () {
   const lottery = new Lottery('.lottery');
-  const result = 200;
+  const result = 500;
   // guide
   $('.btn_guide').click(function () {
     $('body').addClass('overflow-hidden');
@@ -199,10 +199,12 @@ Lottery.prototype = {
     // console.log(stopIndex)
     let stopData = self.lotteryData[self.moveData[stopIndex]];
 
-    lis[stopMoveIndex].classList.remove('on');
+    // lis[stopMoveIndex].classList.remove('on');
 
     // 500的位置
     const fiveIndex = self.lotteryData.findIndex(item => item == 500);
+    let fiveMoveIndex = self.moveData.findIndex(item => item === fiveIndex);
+    console.log(stopIndex, fiveMoveIndex)
     // 算还要走几格
     let needStep = 0;
 
@@ -224,7 +226,7 @@ Lottery.prototype = {
     } else if (parseInt(result) === 300) {
       needStep = calcNum(300);
     } else if (parseInt(result) === 500) {
-
+      console.log(fiveIndex)
     }
 
     stopLottery();
