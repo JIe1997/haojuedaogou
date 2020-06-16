@@ -317,6 +317,7 @@ Lottery.prototype = {
   },
   endLiObjRemoveClass: function () {
     if (this.endLiObj !== null) {
+      this.endLiObj.classList.remove('on')
       this.endLiObj.classList.remove('active')
     }
   },
