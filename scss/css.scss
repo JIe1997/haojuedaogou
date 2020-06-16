@@ -24,6 +24,10 @@ img {
   display: block;
 }
 
+.animate__delay-13s {
+  animation-delay: 1.3s;
+}
+
 @media screen and (max-width:1011px) {
   .bg {
     background: url(../images/bg.jpg) center no-repeat;
@@ -49,18 +53,21 @@ img {
       }
 
       img {
-        display: block;
+        display: none;
         width: 19.683vw;
         border-radius: 50%;
         overflow: hidden;
       }
 
-      .btn_guide {}
+      .btn_guide {
+        animation-delay: 1s;
+      }
 
       .btn_rank {
         position: absolute;
         right: 0;
         top: 14.436vw;
+        animation-delay: 1.2s;
       }
     }
 
@@ -274,6 +281,10 @@ img {
     visibility: hidden;
     transition: all .3s ease;
 
+    &.popup-masked {
+      background-color: rgba(0, 0, 0, .3);
+    }
+
     &.show {
       opacity: 1;
       visibility: visible;
@@ -356,10 +367,10 @@ img {
         background-color: #f39800;
         color: #fff;
         border-radius: 2.3vw;
-        width: 40vw;
-        line-height: 13vw;
+        width: 35vw;
+        line-height: 11vw;
         font-weight: bold;
-        margin: 6vw auto 0;
+        margin: 7.7vw auto 0;
       }
     }
   }
@@ -367,7 +378,7 @@ img {
   // winning
   .winining-content {
     position: absolute;
-    bottom: 21vw;
+    top: 58vw;
     left: 0;
     width: 100%;
     text-align: center;
@@ -383,6 +394,28 @@ img {
       font-weight: bold;
       font-size: 5.2vw;
       border-radius: 10vw;
+    }
+
+    .btn-list {
+      display: flex;
+      justify-content: center;
+      margin-top: 3vw;
+
+      button {
+        display: inline-block;
+        padding: 3vw 5vw;
+        font-size: 3.6vw;
+        margin: 0 2vw;
+        font-weight: bold;
+        background-color: #41D3BD;
+        color: #fff;
+        border-radius: 3vw;
+        letter-spacing: .2vw;
+      }
+
+      .close-button {
+        background: #f03637;
+      }
     }
   }
 
@@ -441,6 +474,7 @@ img {
   }
 }
 
+// 抽奖格子
 .lottery {
   display: grid;
   box-sizing: border-box;
@@ -468,7 +502,7 @@ img {
     }
 
     &.stop {
-      transform: rotate(180deg) translateZ(0);
+      // transform: rotate(180deg) translateZ(0);
     }
   }
 }

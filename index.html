@@ -3,8 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>导购也疯狂</title>
+  <meta name='renderer' content='webkit' />
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui">
+  <title>豪爵有礼-导购也疯狂</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -12,7 +15,7 @@
   <link rel="stylesheet" href="css/css.css">
 </head>
 
-<body>
+<body class="overflow-hidden">
   <!-- loading -->
   <div class="loading">
     <div class="sk-circle">
@@ -40,8 +43,8 @@
       <img class="suipian" src="images/bg_suipian.png" alt="">
 
       <div class="btn-list">
-        <img class="btn_guide" src="images/btn_guide.png" alt="">
-        <img class="btn_rank" src="images/btn_rank.png" alt="">
+        <img class="btn_guide animate__animated animate__bounceInRight" src="images/btn_guide.png" alt="">
+        <img class="btn_rank animate__animated animate__bounceInRight" src="images/btn_rank.png" alt="">
       </div>
     </header>
 
@@ -62,7 +65,7 @@
     <footer>
       <img class="present-left animate__animated animate__fadeInUp animate__delay-1s" src="images/present_left.png"
         alt="">
-      <img class="present-right animate__animated animate__fadeInUp animate__delay-2s" src="images/present_right.png"
+      <img class="present-right animate__animated animate__fadeInUp animate__delay-13s" src="images/present_right.png"
         alt="">
     </footer>
 
@@ -208,10 +211,15 @@
     <!-- Winning -->
     <div class="winning popup-masked">
       <div class="winning-wrap">
-        <i class="btn-close"></i>
+        <!-- <i class="btn-close"></i> -->
         <img src="images/zhongjiang.png" alt="">
         <div class="winining-content">
           <span>500元</span>
+          <div class="btn-list">
+            <button class="back-button">继续抽奖</button>
+            <button class="close-button">关 闭</button>
+            <!-- <button onclick="window.href='http:www.baidu.com'">关 闭</button> -->
+          </div>
         </div>
       </div>
     </div>

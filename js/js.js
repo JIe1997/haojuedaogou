@@ -7,12 +7,17 @@ document.onreadystatechange = function () {
     $(".logo").show();
     $(".present-left").show();
     $(".present-right").show();
+    $(".btn_guide").show();
+    $(".btn_rank").show();
   }
 }
 
 $(function () {
   const lottery = new Lottery('.lottery');
-  const result = 500;
+  let res_arr = [200,300,500];
+  // 返回的中奖金额
+  let result = res_arr[random(res_arr.length)];
+
   // guide
   $('.btn_guide').click(function () {
     $('body').addClass('overflow-hidden');
@@ -39,7 +44,7 @@ $(function () {
   });
 
   // winning
-  $('.winning .btn-close').click(function () {
+  $('.winning .close-button').click(function () {
     $('body').removeClass('overflow-hidden');
     $('.winning').removeClass('show');
   });
@@ -60,15 +65,22 @@ $(function () {
 
   // 点击抽奖
   $('.lottery').on('click', '.game_start', function () {
+    // 正在抽奖不能点
     if (lottery.lotteryIng) {
       return false;
     }
     if ($(".game_start").hasClass('stop') && lottery.showIsCanLottery()) {
-      // 点击停止抽奖
-
+      // 点击停止抽奖 ()
       lottery.stopLottery(result, function () {
         $(".game_start").removeClass('stop');
+        $(".game_start").find('img').attr('src','images/game_start.png');
+
         lottery.endLiObjAddClass();
+
+        let showWinningTimer = setTimeout(function(){
+          $(".winning").addClass('show');
+          clearTimeout(showWinningTimer);
+        },1500);
       });
       return false;
     }
@@ -77,6 +89,7 @@ $(function () {
     if (lottery.showIsCanLottery()) {
       // 开始抽奖
       lottery.startLottery(result);
+      $(".game_start").find('img').attr('src','images/game_stop.png');
       $(".game_start").addClass('stop');
     } else {
       // 填写资料
@@ -158,7 +171,7 @@ Lottery.prototype = {
   },
   startLottery: function (result) {
     if (typeof result === 'undefined') {
-      alert('页面数据错误,请刷新页面,重新录入销售')
+      alert('页面数据错误,请刷新页面,重新录入销售');
     }
     let self = this;
     const lis = [...self.El.querySelectorAll('li')];
@@ -199,7 +212,7 @@ Lottery.prototype = {
     // console.log(stopIndex)
     let stopData = self.lotteryData[self.moveData[stopIndex]];
 
-    // lis[stopMoveIndex].classList.remove('on');
+    lis[stopMoveIndex].classList.remove('on');
 
     // 500的位置
     const fiveIndex = self.lotteryData.findIndex(item => item == 500);
@@ -208,12 +221,14 @@ Lottery.prototype = {
     // 算还要走几格
     let needStep = 0;
 
+    // [200,300,...]
     let newData = [];
     for (let i = 0; i < 2; i++) {
       self.moveData.forEach(item => {
         newData.push(self.lotteryData[item]);
       })
     }
+    // [0,1,2,5,...]
     let newMoveData = [
       ...self.moveData,
       ...self.moveData,
@@ -226,16 +241,18 @@ Lottery.prototype = {
     } else if (parseInt(result) === 300) {
       needStep = calcNum(300);
     } else if (parseInt(result) === 500) {
-      console.log(fiveIndex)
+      needStep = calcNum(500);
     }
 
     stopLottery();
 
     function calcNum(num) {
+      let circle = 16;
+      if(num === 500) circle = 8;
       if (stopData === num) {
-        return 16;
+        return circle;
       } else {
-        return newData.indexOf(result, stopIndex) - stopIndex + 16;
+        return newData.indexOf(result, stopIndex) - stopIndex + circle;
       }
     }
 

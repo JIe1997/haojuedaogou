@@ -22,6 +22,10 @@ img {
   display: block;
 }
 
+.animate__delay-13s {
+  animation-delay: 1.3s;
+}
+
 @media screen and (max-width: 1011px) {
   .bg {
     background: url(../images/bg.jpg) center no-repeat;
@@ -44,15 +48,19 @@ img {
     left: 0;
   }
   header .btn-list img {
-    display: block;
+    display: none;
     width: 19.683vw;
     border-radius: 50%;
     overflow: hidden;
+  }
+  header .btn-list .btn_guide {
+    animation-delay: 1s;
   }
   header .btn-list .btn_rank {
     position: absolute;
     right: 0;
     top: 14.436vw;
+    animation-delay: 1.2s;
   }
   header .people {
     display: none;
@@ -230,6 +238,10 @@ img {
     visibility: hidden;
     transition: all .3s ease;
   }
+  .winning.popup-masked,
+  .enter.popup-masked {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
   .winning.show,
   .enter.show {
     opacity: 1;
@@ -313,14 +325,14 @@ img {
     background-color: #f39800;
     color: #fff;
     border-radius: 2.3vw;
-    width: 40vw;
-    line-height: 13vw;
+    width: 35vw;
+    line-height: 11vw;
     font-weight: bold;
-    margin: 6vw auto 0;
+    margin: 7.7vw auto 0;
   }
   .winining-content {
     position: absolute;
-    bottom: 21vw;
+    top: 58vw;
     left: 0;
     width: 100%;
     text-align: center;
@@ -336,6 +348,25 @@ img {
     font-weight: bold;
     font-size: 5.2vw;
     border-radius: 10vw;
+  }
+  .winining-content .btn-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+  }
+  .winining-content .btn-list button {
+    display: inline-block;
+    padding: 3vw 5vw;
+    font-size: 3.6vw;
+    margin: 0 2vw;
+    font-weight: bold;
+    background-color: #41D3BD;
+    color: #fff;
+    border-radius: 3vw;
+    letter-spacing: .2vw;
+  }
+  .winining-content .btn-list .close-button {
+    background: #f03637;
   }
 }
 
@@ -417,10 +448,6 @@ img {
 
 .lottery li.active {
   animation: scale 1s ease infinite;
-}
-
-.lottery li.stop {
-  transform: rotate(180deg) translateZ(0);
 }
 
 @keyframes light {
