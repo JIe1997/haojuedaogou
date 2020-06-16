@@ -301,6 +301,8 @@ img {
     line-height: 12vw;
     overflow: hidden;
     color: #ff1c1c;
+    display: flex;
+    justify-content: space-between;
   }
   .winning form div:nth-of-type(1),
   .enter form div:nth-of-type(1) {
@@ -448,7 +450,7 @@ img {
 }
 
 .lottery li.on {
-  transform: scale(1.1) translateZ(0);
+  transform: scale(1.1);
 }
 
 .lottery li.active {

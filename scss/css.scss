@@ -345,6 +345,8 @@ img {
         line-height: 12vw;
         overflow: hidden;
         color: #ff1c1c;
+        display: flex;
+        justify-content: space-between;
 
         &:nth-of-type(1) {
           color: #2837ff;
@@ -501,7 +503,7 @@ img {
     transition: all .1s ease;
 
     &.on {
-      transform: scale(1.1) translateZ(0);
+      transform: scale(1.1);
     }
 
     &.active {
