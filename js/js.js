@@ -9,6 +9,25 @@ document.onreadystatechange = function () {
     $(".present-right").show();
     $(".btn_guide").show();
     $(".btn_rank").show();
+
+    // 动画
+    let peopleTimer = setInterval(() => {
+      $(".people").removeClass('animate__fadeInUp animate__delay-1s')
+      $(".people").addClass('animate__headShake')
+      let peopleTimerIn = setInterval(() => {
+        $(".people").removeClass('animate__headShake');
+        clearInterval(peopleTimerIn);
+      }, 1000);
+    }, 5000);
+
+    let lightTimer = setInterval(() => {
+      if($('#main').hasClass('pic1')){
+        $('#main').removeClass('pic1').addClass('pic2');
+      }else {
+        $('#main').removeClass('pic2').addClass('pic1');
+      }
+    }, 1000);
+
   }
 }
 
@@ -44,10 +63,12 @@ $(function () {
   });
 
   // winning
-  $('.winning .close-button').click(function () {
+  $('.winning .back-button').click(function () {
     $('body').removeClass('overflow-hidden');
     $('.winning').removeClass('show');
+    lottery.endLiObjRemoveClass();
   });
+  
 
   // 提交
   $("#form_submit").click(function () {
@@ -60,6 +81,12 @@ $(function () {
 
     $('body').removeClass('overflow-hidden');
     $('.enter').removeClass('show');
+
+    // 开始抽奖
+    lottery.startLottery(result);
+    $(".game_start").find('img').attr('src','images/game_stop.png');
+    $(".game_start").addClass('stop');
+
     return false;
   })
 
@@ -86,16 +113,12 @@ $(function () {
     }
 
 
-    if (lottery.showIsCanLottery()) {
-      // 开始抽奖
-      lottery.startLottery(result);
-      $(".game_start").find('img').attr('src','images/game_stop.png');
-      $(".game_start").addClass('stop');
-    } else {
+    if (!lottery.showIsCanLottery()) {
       // 填写资料
       $('body').addClass('overflow-hidden');
       $('.enter').addClass('show');
       lottery.reset();
+      
     }
   })
 

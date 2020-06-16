@@ -121,12 +121,18 @@ img {
     transform: translateX(-50%);
     width: 87.537vw;
     height: 87.537vw;
-    background: url(../images/cj_wrap.png) center no-repeat;
-    background-size: cover;
     border-radius: 10.561vw;
     overflow: hidden;
     box-shadow: 1.583vw 2.028vw 10.386vw 1.978vw rgba(7, 0, 2, 0.75);
-    animation: light 2.6s ease infinite;
+    // animation: light 2.6s ease infinite;
+    &.pic1{
+      background: url(../images/cj_wrap.png) center no-repeat;
+      background-size: cover;
+    }
+    &.pic2{
+      background: url(../images/cj_wrap_2.png) center no-repeat;
+      background-size: cover;
+    }
   }
 
 
