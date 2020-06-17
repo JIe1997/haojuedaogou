@@ -446,7 +446,7 @@ img {
 }
 
 .lottery li {
-  transition: all .1s ease;
+  transition: transform .1s ease;
 }
 
 .lottery li.on {
@@ -455,6 +455,10 @@ img {
 
 .lottery li.active {
   animation: scale 1s ease infinite;
+}
+
+.lottery li.bg-gray {
+  filter: grayscale(100%);
 }
 
 @keyframes light {

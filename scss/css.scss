@@ -500,8 +500,8 @@ img {
   }
 
   li {
-    transition: all .1s ease;
-
+    transition: transform .1s ease;
+    
     &.on {
       transform: scale(1.1);
     }
@@ -509,7 +509,9 @@ img {
     &.active {
       animation: scale 1s ease infinite;
     }
-
+    &.bg-gray{
+      filter:grayscale(100%);
+    }
     &.stop {
       // transform: rotate(180deg) translateZ(0);
     }

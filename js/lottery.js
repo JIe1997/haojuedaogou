@@ -168,7 +168,6 @@ Lottery.prototype = {
       if (needStep <= 0) {
         self.isStopTimer = true;
         self.canNotLottery();
-        self.lotteryIng = false;
         audioObj.ding_arr.forEach(ding=>{
           ding.pause();
         })
@@ -222,18 +221,6 @@ function audioInit(){
   sound_win = new Howl({
     src: ['music/sound_win.mp3']
   }); 
-  // let ding_arr = document.querySelectorAll(".ding");
-  // let sound_win = document.querySelector("#sound_win");
-  // [...ding_arr].forEach(ding=>{
-  //   if (!ding.src) {
-  //     ding.src = "music/ding.wav";
-  //     ding.pause();
-  //   }
-  // })
-  // if (!sound_win.src) {
-  //   sound_win.src = "music/sound_win.mp3";
-  //   sound_win.pause();
-  // }
   return {
     ding_arr:ding_arr,
     sound_win:sound_win
